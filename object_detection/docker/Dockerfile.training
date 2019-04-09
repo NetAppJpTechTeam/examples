@@ -43,7 +43,7 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
     rm get-pip.py
 
 RUN pip --no-cache-dir install \
-        tensorflow==1.10.0
+        tensorflow==1.13.1
 
 RUN pip --no-cache-dir install \
         Cython \
@@ -53,7 +53,7 @@ RUN pip --no-cache-dir install \
 
 # Setup Universal Object Detection
 ENV MODELS_HOME "/models"
-RUN git clone https://github.com/tensorflow/models.git $MODELS_HOME
+RUN git clone https://github.com/NetAppJpTechTeam/models.git $MODELS_HOME
 
 RUN cd $MODELS_HOME/research && \
     wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip && \
