@@ -7,6 +7,8 @@
       accessMode: 'ReadWriteMany',
       name: 'pets-pvc',
       storage: '20Gi',
+      storageClassName: 'ontap-gold',
+      volumeMode: 'Filesystem',
     },
     "get-data-job": {
       mountPath: '/pets_data',
@@ -34,7 +36,7 @@
       pvc: 'pets-pvc',
     },
     "tf-training-job": {
-      image: 'lcastell/pets_object_detection',
+      image: 'makotow/pets_object_detection:1.0-tensorflow1.13',
       mountPath: '/pets_data',
       name: 'tf-training-job',
       numGpu: 0,
